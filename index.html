@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS CreateElement Demo</title>
+</head>
+<body>
+<label>number of line item<input type=field id=lineitem value=5 type=number></label>
+<button type=button  onclick="generatelineitem()">generate line item</button> 
+    <script>
+    
+var description = ["jewelry","food","choclate","pencil","food"];
+var HScode=["123","231","231","554","231"] ;
+var value= [1,2,3,4,5];
+var country= ["my","ru","ru","eu","ph"];
+var weight= [4,4,4,4,4];
+    
+    
+    numberofline=document.getElementById("lineitem").value;
+
+        
+        function myFunction() {
+        
+             numberofline=document.getElementById("lineitem").value;
+
+   for (let i = 0; i <parseInt(numberofline) ; i++){
+  description[i]= document.getElementById("description"+i.toString()).value;
+ HScode[i]= document.getElementById(("hscode"+i.toString())).value;
+  value[i]= document.getElementById(("value"+i.toString())).value;
+  country[i]= document.getElementById(("country"+i.toString())).value;
+  weight[i]= document.getElementById(("weight"+i.toString())).value;
+   }
+   
+//compile part
+for (let i = 0; i < numberofline; i++) 
+{
+	for (let j = 0; j < numberofline; j++) 
+{
+	if(i != j )
+    {
+    if(HScode[i]==HScode[j]  && HScode[i]!=null && HScode[j]!=null )
+    
+{
+if(country[i]==country[j]){
+description[i]=description[i]+description[j];
+value[i]=parseInt(value[i])+parseInt(value[j]);
+
+
+HScode[j]=null;
+country[j]=null;
+description[j]=null;
+value[j]=null;
+
+    }
+
+}
+
+}
+}
+  
+}
+
+//end compile part
+
+
+var HScode1 = HScode.filter(function (el) {
+  return el != null;
+});
+
+var country1 = country.filter(function (el) {
+  return el != null;
+});
+
+var description1 = description.filter(function (el) {
+  return el != null;
+});
+
+var value1 = value.filter(function (el) {
+  return el != null;
+});
+
+
+let text="<br><br>";
+
+
+ for (let i = 0; i < description1.length; i++)
+       {
+       text+="<p>";
+       text+="description&nbsp;&nbsp;<input id=description"+i.toString()+" type=text value="+description1[i]+"> &nbsp;&nbsp";
+       text+="hscode&nbsp;&nbsp;<input id=hscode"+i.toString()+" type=text value="+HScode1[i]+">&nbsp;&nbsp";
+        text+="value&nbsp;&nbsp;<input id=value"+i.toString()+" type=number value="+value1[i]+">&nbsp;&nbsp";
+        text+="country&nbsp;&nbsp;<input id=country"+i.toString()+" type=text value="+country1[i]+">&nbsp;&nbsp";
+         text+="weight&nbsp;&nbsp;<input id=weight"+i.toString()+" type=float value="+weight[i]+">&nbsp;&nbsp";
+        text+="</p>";
+       }
+       
+         div.innerHTML = text+"<button type=button  onclick=\"myFunction()\">Click Me!</button> <p id=hello>23rerf</p>";
+
+// document.getElementById("hello").innerHTML=description1;
+
+
+//endfofunction
+}
+
+ let text="<br><br>";
+let no=5;
+           for (let i = 0; i < no; i++)
+       {
+       text+="<p>";
+       text+="description&nbsp;&nbsp;<input id=description"+i.toString()+" type=text value="+description[i]+"> &nbsp;&nbsp";
+       text+="hscode&nbsp;&nbsp;<input id=hscode"+i.toString()+" type=text value="+HScode[i]+">&nbsp;&nbsp";
+        text+="value&nbsp;&nbsp;<input id=value"+i.toString()+" type=number value="+value[i]+">&nbsp;&nbsp";
+        text+="country&nbsp;&nbsp;<input id=country"+i.toString()+" type=text value="+country[i]+">&nbsp;&nbsp";
+         text+="weight&nbsp;&nbsp;<input id=weight"+i.toString()+" type=float value="+weight[i]+">&nbsp;&nbsp";
+        text+="</p>";
+       }
+
+      
+		
+        
+         let div = document.createElement('div');
+        div.id = 'content';
+        div.innerHTML = text+"<button type=button  onclick=\"myFunction()\">Click Me!</button> <p id=hello>23rerf</p>";
+       document.body.appendChild(div);
+       
+       
+        function generatelineitem() {
+       
+ let text="<br><br>";
+ 
+ let no=document.getElementById("lineitem").value;
+ 
+ 		
+        
+       for (let i = 0; i < no; i++)
+       {
+       text+="<p>";
+       text+="description&nbsp;&nbsp;<input id=description"+i.toString()+" type=text value="+description[i]+"> &nbsp;&nbsp";
+       text+="hscode&nbsp;&nbsp;<input id=hscode"+i.toString()+" type=text value="+HScode[i]+">&nbsp;&nbsp";
+        text+="value&nbsp;&nbsp;<input id=value"+i.toString()+" type=number value="+value[i]+">&nbsp;&nbsp";
+        text+="country&nbsp;&nbsp;<input id=country"+i.toString()+" type=text value="+country[i]+">&nbsp;&nbsp";
+         text+="weight&nbsp;&nbsp;<input id=weight"+i.toString()+" type=float value="+weight[i]+">&nbsp;&nbsp";
+        text+="</p>";
+       }
+
+      
+		
+        
+       //  let div = document.createElement('div');
+       // div.id = 'content';
+        div.innerHTML = text+"<button type=button  onclick=\"myFunction()\">Click Me!</button> <p id=hello>23rerf</p>";
+       
+     
+       
+        
+        }
+
+        
+    </script>
+</body>
+</html>
